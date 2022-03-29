@@ -1,12 +1,34 @@
+import { Dashboard } from "./components/Dashboard";
+import { Header } from "./components/Header";
+import Modal from 'react-modal';
 import { GlobalStyle } from "./styles/global";
+import { useState } from "react";
+import { NewTransactionModal } from "./components/NewTransactionModal";
 
+Modal.setAppElement('#root');
 
 export function App() {
+  const [isNewTransactionOpen, setIsNewTransactionOpen] = useState(false);
+
+    function handleOpenNewTransactionModal() {
+        setIsNewTransactionOpen(true);
+    }
+
+    function handleCloseNewTransactionModal() {
+        setIsNewTransactionOpen(false);
+    }
+    
   return (
-     <div className="App">
-       <h1>Hello World</h1>
+     <>
+       <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
+       <Dashboard />
+
+      <NewTransactionModal
+        isOpen={isNewTransactionOpen}
+        onRequestClose={handleCloseNewTransactionModal}
+       />
        <GlobalStyle />
-     </div>
+     </>
   );
 }
 
