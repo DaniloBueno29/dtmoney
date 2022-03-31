@@ -11,7 +11,7 @@ export function NewTransactionModal({isOpen, onRequestClose }: NewTransactionMod
         <Modal 
             isOpen={isOpen}
             onRequestClose={onRequestClose}
-            overlayClassName="react=modal-overlay"
+            overlayClassName="react-modal-overlay"
             className="react-modal-content"
         >
             <Container>
@@ -34,7 +34,6 @@ export function NewTransactionModal({isOpen, onRequestClose }: NewTransactionMod
                     Cadastrar
                 </button>
             </Container>
-
         </Modal>
     );
 }
